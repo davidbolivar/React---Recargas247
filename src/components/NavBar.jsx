@@ -3,7 +3,7 @@ import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import CartWidget from "./CartWidget";
 import logo_r247 from "../img/logo.svg";
 
-function NavBar() {
+const NavBar = () => {
 	return (
 		<>
 			<Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -38,5 +38,5 @@ function NavBar() {
 			</Navbar>
 		</>
 	);
-}
+};
 export default NavBar;

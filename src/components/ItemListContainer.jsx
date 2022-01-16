@@ -1,7 +1,14 @@
 import React from "react";
+import ItemCount from "./ItemCount";
 
-function ItemListContainer(props) {
-	return <h1 style={{ color: "grey", fontStyle: "italic", margin: "20px" }}> {props.greeting} </h1>;
-}
+const ItemListContainer = () => {
+	const onAdd = (qty) => {
+		let producto_s;
+		qty > 1 ? (producto_s = "productos") : (producto_s = "producto");
+		alert("Agregaste " + qty + " " + producto_s + " al carrito.");
+	};
+
+	return <ItemCount stock="5" initial="1" onAdd={onAdd} />;
+};
 
 export default ItemListContainer;
