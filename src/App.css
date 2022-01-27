@@ -1,0 +1,17 @@
+.react-link {
+	text-decoration: none;
+	color: #0000008c;
+}
+.react-link:hover {
+	color: #4899d2;
+}
+
+.align-v {
+	display: flex;
+	align-items: center;
+}
+
+.link-activo {
+	color: #4899d2;
+	font-weight: 500;
+}

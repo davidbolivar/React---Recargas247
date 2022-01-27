@@ -1,39 +1,41 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import ItemCount from "./ItemCount";
+import { CartContext } from "./CartContex";
 
-const ItemDetail = ({ item }) => {
+const ItemDetail = ({ props }) => {
+	const { carrito } = useContext(CartContext);
+	console.log(carrito);
 	return (
 		<>
 			<Container className="my-5">
-				<Row className="border border-secondary shadow-md" sm={1} lg={2}>
-					<Col className="mx-auto px-0">
-						<Card.Img variant="top" src={item.image} />
-						{/* <img src={item.image} /> */}
+				<Row className="shadow" xs={1} md={2} style={{ borderLeft: `10px solid ${props.colors.primary}` }}>
+					<Col className="mx-auto px-0 align-v" style={{ minHeight: "170px" }}>
+						<Card.Img variant="top" style={{ maxWidth: "80%", margin: "auto" }} src={props.image} />
 					</Col>
-					<Col className="px-0 border-left">
+					<Col className="px-0">
 						<Card className="rounded-0 border-0">
-							<Card.Header className="h2 text-secondary">
-								{item.name} {item.contract.es}
+							<Card.Header className="h2 text-light bg-secondary rounded-0">
+								{props.display_name.secondary.toUpperCase()} - {props.category.es.toUpperCase()}
 							</Card.Header>
-							<Card.Body className="pb-0">
+							<Card.Body className="pb-0 bg-light">
 								<blockquote className="mb-0">
-									{/* <Card.Text className="m-0 small border-bottom border-light">
-										<strong className="text-secondary">Tipo de contrato:</strong> {item.contract.es}
-									</Card.Text> */}
 									<Card.Text className="m-0 small border-bottom border-light">
-										<strong className="text-secondary">Tipo de servicio:</strong> {item.service.es}
+										<strong className="text-secondary">Tipo de servicio:</strong> {props.contract.es}
 									</Card.Text>
+
 									<Card.Text className="m-0 small border-bottom border-light">
-										<strong className="text-secondary">Mínimo / Máximo:</strong> {item.min} Bs. / {item.max}Bs.
+										<strong className="text-secondary">Precio mínimo / máximo:</strong> {props.min_amount} Bs. / {props.max_amount} Bs.
 									</Card.Text>
+
 									<Card.Text className="mt-0 small border-bottom border-light">
-										<strong className="text-secondary">Montos de recarga:</strong> {item.amounts.join(", ")}
+										<strong className="text-secondary">Montos de recarga:</strong> {props.amounts.join(", ")}
 									</Card.Text>
 
 									<Container>
-										<ItemCount stock={item.stock} initial="1" />
+										<ItemCount stock={props.stock} initial={props.min_amount} />
 									</Container>
+
 									<footer className="blockquote-footer mt-3">El tiempo de acreditación es de 10 minutos como máximo.</footer>
 								</blockquote>
 							</Card.Body>

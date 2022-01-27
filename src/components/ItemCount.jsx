@@ -1,10 +1,14 @@
-import React, { useState } from "react";
-import { InputGroup, FormControl, Button, Col, Row } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { InputGroup, Form, Button, Col, Row } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial }) => {
+	const onAdd = (qty) => alert("Agregaste una recarga de Bs " + qty + " al carrito.");
+
 	let desactivado = "";
 	let texto_boton_agregar = "Agregar al carrito";
 	let clase_boton;
+
 	if (stock < 1) {
 		desactivado = "disabled";
 		initial = 0;
@@ -12,7 +16,8 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 		clase_boton = "outline-danger";
 	}
 
-	const [contador, setContador] = useState(+initial);
+	const [contador, setContador] = useState(initial);
+
 	return (
 		<>
 			<Row className="justify-content-center">
@@ -22,14 +27,14 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 							-
 						</InputGroup.Text>
 
-						<FormControl placeholder={contador} aria-label={contador} className="bg-white" aria-describedby="basic-addon1" style={{ textAlign: "center", fontWeight: "500" }} disabled />
+						<Form.Control size="sm" placeholder={contador} aria-label={contador} className="bg-white" aria-describedby="basic-addon1" style={{ textAlign: "center", fontWeight: "500" }} disabled />
 
 						<InputGroup.Text style={{ cursor: "pointer" }} id="basic-addon1" onClick={() => contador < stock && setContador(contador + 1)}>
 							+
 						</InputGroup.Text>
 					</InputGroup>
 
-					<Button className={`w-100 border-secondary ${desactivado}`} onClick={() => onAdd(contador)} variant={clase_boton || "light"}>
+					<Button className={`w-100 border-secondary ${desactivado}`} onClick={() => onAdd(contador)} variant={clase_boton || "light"} size="sm">
 						{texto_boton_agregar}
 					</Button>
 				</Col>

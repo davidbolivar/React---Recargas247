@@ -2,16 +2,49 @@ import React from "react";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "../node_modules/bootstrap/dist/js/bootstrap.js";
+// import "../node_modules/bootstrap/dist/js/bootstrap.js";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { CartProvider } from "./components/CartContex";
 
 function App() {
 	return (
 		<>
-			<NavBar />
-			<ItemListContainer />
-			<ItemDetailContainer />
+			<CartProvider>
+				<BrowserRouter>
+					<NavBar />
+					<Switch>
+						<Route exact path="/">
+							<ItemListContainer />
+						</Route>
+
+						<Route path="/servicios/:service_id">
+							<ItemDetailContainer />
+						</Route>
+
+						<Route path="/categoria/:category">
+							<ItemListContainer />
+						</Route>
+
+						<Route exact path="/contacto">
+							Contacto
+						</Route>
+
+						<Route exact path="/como-funciona">
+							¿Cómo funciona?
+						</Route>
+
+						<Route exact path="/preguntas-frecuentes">
+							Preguntas
+						</Route>
+
+						<Route exact path="/carrito-de-compras">
+							Carrito de compras
+						</Route>
+					</Switch>
+				</BrowserRouter>
+			</CartProvider>
 		</>
 	);
 }
