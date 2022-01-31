@@ -17,10 +17,9 @@ const Item = ({ props }) => {
 						<ListGroupItem>{props.stock} Disponibles</ListGroupItem>
 					</ListGroup>
 					<Card.Body>
-						<ItemCount stock={props.stock} initial={props.min_amount} />
 						<Link to={`/servicios/${props.service_id}`}>
 							<Button variant="secondary" size="sm" className="w-100 mt-2">
-								COMPRAR
+								RECARGAR
 							</Button>
 						</Link>
 					</Card.Body>

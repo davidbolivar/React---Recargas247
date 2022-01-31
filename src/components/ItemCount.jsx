@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { InputGroup, Form, Button, Col, Row } from "react-bootstrap";
 
-const ItemCount = ({ stock, initial }) => {
-	const onAdd = (qty) => alert("Agregaste una recarga de Bs " + qty + " al carrito.");
-
+const ItemCount = ({ stock, initial, onAdd }) => {
 	let desactivado = "";
 	let texto_boton_agregar = "Agregar al carrito";
 	let clase_boton;

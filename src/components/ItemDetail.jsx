@@ -1,11 +1,20 @@
-import React, { useContext } from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import React, { useContext, useState } from "react";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import ItemCount from "./ItemCount";
 import { CartContext } from "./CartContex";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ props }) => {
-	const { carrito } = useContext(CartContext);
-	console.log(carrito);
+	const [itemCountVisible, setItemCountVisible] = useState(true);
+
+	const onAdd = (qty) => {
+		alert("Agregaste una recarga de Bs " + qty + " al carrito.");
+		setItemCountVisible(false);
+	};
+
+	// const { carrito } = useContext(CartContext);
+	// console.log(carrito);
+
 	return (
 		<>
 			<Container className="my-5">
@@ -33,7 +42,15 @@ const ItemDetail = ({ props }) => {
 									</Card.Text>
 
 									<Container>
-										<ItemCount stock={props.stock} initial={props.min_amount} />
+										{itemCountVisible ? (
+											<ItemCount stock={props.stock} initial={props.min_amount} onAdd={onAdd} />
+										) : (
+											<Link to="/carrito-de-compras">
+												<Button className={`w-100`} variant="outline-primary">
+													Continuar al carrito
+												</Button>
+											</Link>
+										)}
 									</Container>
 
 									<footer className="blockquote-footer mt-3">El tiempo de acreditación es de 10 minutos como máximo.</footer>
