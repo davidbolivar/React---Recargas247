@@ -17,7 +17,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
 	return (
 		<Row className="justify-content-center">
-			<Col>
+			<Col xs="7">
 				<InputGroup className="mb-3">
 					<InputGroup.Text style={{ cursor: "pointer" }} id="basic-addon1" onClick={() => contador > initial && setContador(contador - 1)}>
 						-
@@ -29,8 +29,9 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 						+
 					</InputGroup.Text>
 				</InputGroup>
-
-				<Button className={`w-100 border-secondary ${desactivado}`} onClick={() => onAdd(contador)} variant={clase_boton || "light"} size="sm">
+			</Col>
+			<Col xs="5">
+				<Button className={`w-100 border-secondary ${desactivado}`} onClick={() => onAdd(contador)} variant={clase_boton || "light"}>
 					{texto_boton_agregar}
 				</Button>
 			</Col>

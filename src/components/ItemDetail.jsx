@@ -1,19 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import ItemCount from "./ItemCount";
-import { CartContext } from "./CartContex";
+
 import { Link } from "react-router-dom";
 
-const ItemDetail = ({ props }) => {
-	const [itemCountVisible, setItemCountVisible] = useState(true);
+const ItemDetail = ({ props, onAdd, showCount }) => {
+	const [qty, setQty] = useState();
 
-	const onAdd = (qty) => {
-		alert("Agregaste una recarga de Bs " + qty + " al carrito.");
-		setItemCountVisible(false);
-	};
-
-	// const { carrito } = useContext(CartContext);
-	// console.log(carrito);
+	// const onAdd = (qty) => {
+	// 	alert("Agregaste una recarga de Bs " + qty + " al carrito.");
+	// 	setItemCountVisible(false);
+	// 	setQty(qty);
+	// };
 
 	return (
 		<>
@@ -42,7 +40,7 @@ const ItemDetail = ({ props }) => {
 									</Card.Text>
 
 									<Container>
-										{itemCountVisible ? (
+										{showCount ? (
 											<ItemCount stock={props.stock} initial={props.min_amount} onAdd={onAdd} />
 										) : (
 											<Link to="/carrito-de-compras">
