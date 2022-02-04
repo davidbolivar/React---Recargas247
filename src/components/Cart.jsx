@@ -12,11 +12,11 @@ const Cart = () => {
 				<Table striped bordered hover size="sm">
 					<thead>
 						<tr>
-							<th className="col-1">#</th>
+							<th className="col-2">#</th>
 							<th className="col-3">Servicio</th>
-							<th className="col-1">Precio</th>
-							<th className="col-5">Modificar</th>
-							<th className="col-2"></th>
+							<th className="col-4">Categoria / Contrato</th>
+							<th className="col-2">Precio</th>
+							<th className="col-1"></th>
 						</tr>
 					</thead>
 					<tbody>
