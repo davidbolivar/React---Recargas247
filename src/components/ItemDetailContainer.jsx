@@ -13,16 +13,16 @@ const ItemDetailContainer = () => {
 	const [loading, setLoading] = useState(true);
 	const [showCount, setShowCount] = useState(true);
 
-	const getItem = new Promise((resolve, reject) => {
-		fetch("/api/products.json")
-			.then((response) => response.json())
-			.then((res) => {
-				// console.log(res);
-				resolve(res);
-			});
-	});
-
 	useEffect(() => {
+		const getItem = new Promise((resolve, reject) => {
+			fetch("/api/products.json")
+				.then((response) => response.json())
+				.then((res) => {
+					// console.log(res);
+					resolve(res);
+				});
+		});
+
 		setLoading(true);
 		getItem
 			.then((res) => {
@@ -44,7 +44,7 @@ const ItemDetailContainer = () => {
 	}, [service_id]);
 
 	const onAdd = (qty) => {
-		alert(`Agregaste una recarga ${itemDetail.display_name.primary} de Bs ${qty} al carrito.`);
+		// alert(`Agregaste una recarga ${itemDetail.display_name.primary} de Bs ${qty} al carrito.`);
 		setShowCount(false);
 		addToCart(itemDetail, qty);
 	};

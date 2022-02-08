@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import CartWidget from "./CartWidget";
 import logo_r247 from "../img/logo.svg";
 import { NavLink } from "react-router-dom";
+import { cartContext } from "./CartContex";
 
 const NavBar = () => {
+	const { cart } = useContext(cartContext);
+	useEffect(() => [cart]);
 	return (
 		<Navbar collapseOnSelect expand="lg" bg="light" variant="light">
 			<Container fluid style={{ padding: "0px 50px" }}>
 				<Navbar.Brand>
 					<NavLink activeClassName="link-activo" className="react-link" to="/">
-						<img src={logo_r247} alt="logo" height="30px" alt="Recargas 24/7" />
+						<img src={logo_r247} height="30px" alt="Logo Recargas 24/7" />
 					</NavLink>
 				</Navbar.Brand>
 
@@ -189,7 +192,7 @@ const NavBar = () => {
 					<Nav>
 						<Nav.Link href="#cart">
 							<NavLink activeClassName="link-activo" to="/carrito-de-compras" className="react-link">
-								<CartWidget />
+								{cart.length > 0 && <CartWidget />}
 							</NavLink>
 						</Nav.Link>
 					</Nav>

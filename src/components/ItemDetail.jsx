@@ -1,18 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import ItemCount from "./ItemCount";
 
 import { Link } from "react-router-dom";
 
 const ItemDetail = ({ props, onAdd, showCount }) => {
-	const [qty, setQty] = useState();
-
-	// const onAdd = (qty) => {
-	// 	alert("Agregaste una recarga de Bs " + qty + " al carrito.");
-	// 	setItemCountVisible(false);
-	// 	setQty(qty);
-	// };
-
 	return (
 		<>
 			<Container className="my-5">
@@ -35,8 +27,12 @@ const ItemDetail = ({ props, onAdd, showCount }) => {
 										<strong className="text-secondary">Precio mínimo / máximo:</strong> {props.min_amount} Bs. / {props.max_amount} Bs.
 									</Card.Text>
 
-									<Card.Text className="mt-0 small border-bottom border-light">
+									<Card.Text className="m-0 small border-bottom border-light">
 										<strong className="text-secondary">Montos de recarga:</strong> {props.amounts.join(", ")}
+									</Card.Text>
+									<Card.Text className="mt-0 small border-bottom border-light">
+										<strong className="text-success">PRECIO: </strong>
+										{props.price} Bs.
 									</Card.Text>
 
 									<Container>

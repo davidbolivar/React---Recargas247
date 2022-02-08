@@ -1,16 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { CartProvider, cartContext } from "./components/CartContex";
+import { CartProvider } from "./components/CartContex";
 import Cart from "./components/Cart";
 
 function App() {
-	// const { cart } = useContext(cartContext);
-
 	return (
 		<>
 			<CartProvider>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { InputGroup, Form, Button, Col, Row } from "react-bootstrap";
+import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
 const ItemCount = ({ stock, initial, onAdd }) => {
 	let desactivado = "";
@@ -32,7 +33,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 			</Col>
 			<Col xs="5">
 				<Button className={`w-100 border-secondary ${desactivado}`} onClick={() => onAdd(contador)} variant={clase_boton || "light"}>
-					{texto_boton_agregar}
+					<i class="bi bi-plus-circle"></i> {texto_boton_agregar}
 				</Button>
 			</Col>
 		</Row>

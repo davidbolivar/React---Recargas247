@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, ListGroup, ListGroupItem, Col, Button } from "react-bootstrap";
-import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
 
 const Item = ({ props }) => {
