@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+// import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 import { cartContext } from "./CartContex";
 
 const CartWidget = () => {

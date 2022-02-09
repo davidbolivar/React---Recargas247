@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import CartWidget from "./CartWidget";
 import logo_r247 from "../img/logo.svg";
@@ -7,7 +7,7 @@ import { cartContext } from "./CartContex";
 
 const NavBar = () => {
 	const { cart } = useContext(cartContext);
-	useEffect(() => [cart]);
+
 	return (
 		<Navbar collapseOnSelect expand="lg" bg="light" variant="light">
 			<Container fluid style={{ padding: "0px 50px" }}>

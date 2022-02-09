@@ -3,29 +3,34 @@ import ItemList from "./ItemList";
 import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Loader from "./Loader";
+import { getFirestore } from "../firebase_config";
 
 function ItemListContainer() {
 	const [producto, setProducto] = useState({});
 	const { category } = useParams();
 
 	useEffect(() => {
-		const obtenerProductos = new Promise((resolve, reject) => {
-			fetch("/api/products.json")
-				.then((response) => response.json())
-				.then((res) => {
-					console.log(res);
-					resolve(res);
-				});
-		});
+		const db = getFirestore();
 
-		obtenerProductos.then((res) => {
-			if (category) res = res.filter((item) => item.category.id === category && item.active);
-			console.log(obtenerProductos);
-			console.log(res);
-			setProducto(res);
-		});
+		let servicesCollection;
+		// var query = db.collection('chatDocs').where("chatMembers", "array-contains", { userId: "xyz", userName: "abc" });
+		if (!category) servicesCollection = db.collection("services").orderBy("id", "asc");
+		else servicesCollection = db.collection("services").where("category.id", "==", category);
 
-		obtenerProductos.catch((err) => setProducto(err));
+		servicesCollection
+			.get()
+			.then((querySnapshot) => {
+				querySnapshot.size === 0 && console.log("No hay servicios");
+				setProducto(
+					querySnapshot.docs.map((doc) => {
+						return { doc_id: doc.id, ...doc.data() };
+					})
+				);
+			})
+			.catch((err) => {
+				console.error("Error al buscar servicios", err);
+			})
+			.finally(() => {});
 	}, [category]);
 
 	return (

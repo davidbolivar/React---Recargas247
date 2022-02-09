@@ -12,6 +12,9 @@
 # production
 /build
 
+#PRUEBAS
+/src/pruebas
+
 # misc
 .DS_Store
 .env.local

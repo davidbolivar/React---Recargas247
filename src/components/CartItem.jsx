@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { cartContext } from "./CartContex";
 import { Button } from "react-bootstrap";
-import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+// import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
 export function CartItem({ props, item_number }) {
 	const { deleteItem } = useContext(cartContext);
@@ -14,9 +14,6 @@ export function CartItem({ props, item_number }) {
 			<td>{props.price} Bs</td>
 			<td>{props.qty}</td>
 			<td>{props.total} Bs</td>
-			{/* <td>
-				<ItemCount stock={props.stock} initial={props.qty} />
-			</td> */}
 			<td>
 				<Button variant="outline-danger" size="sm" className="w-100" onClick={() => deleteItem(props.service_id)}>
 					<i class="bi bi-x-circle"></i> Eliminar
