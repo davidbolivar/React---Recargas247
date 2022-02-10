@@ -6,19 +6,6 @@ import { NavLink } from "react-router-dom";
 
 const Cart = () => {
 	const { cart, clearCart, totalCart } = useContext(cartContext);
-	console.log("total:", totalCart());
-
-	const obj = {
-		buyer: {
-			name: "David Bolívar",
-			phone: "+5491112345698",
-			email: "davidbolivarh@gmail.com",
-		},
-		items: cart,
-		total: totalCart(),
-	};
-
-	console.log(obj);
 
 	return (
 		<>

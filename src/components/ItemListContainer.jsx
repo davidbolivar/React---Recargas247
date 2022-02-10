@@ -12,8 +12,8 @@ function ItemListContainer() {
 	useEffect(() => {
 		const db = getFirestore();
 
-		let servicesCollection;
 		// var query = db.collection('chatDocs').where("chatMembers", "array-contains", { userId: "xyz", userName: "abc" });
+		let servicesCollection;
 		if (!category) servicesCollection = db.collection("services").orderBy("id", "asc");
 		else servicesCollection = db.collection("services").where("category.id", "==", category);
 
