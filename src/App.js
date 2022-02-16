@@ -7,9 +7,12 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { CartProvider } from "./components/CartContex";
 import Cart from "./components/Cart";
+import Contact from "./components/Contact";
+import Checkout from "./components/Checkout";
 import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
 function App() {
+	// const { totalCart } = useContext(cartContext);
 	return (
 		<>
 			<CartProvider>
@@ -28,10 +31,6 @@ function App() {
 							<ItemListContainer />
 						</Route>
 
-						<Route exact path="/contacto">
-							Contacto
-						</Route>
-
 						<Route exact path="/como-funciona">
 							¿Cómo funciona?
 						</Route>
@@ -42,6 +41,14 @@ function App() {
 
 						<Route exact path="/carrito-de-compras">
 							<Cart />
+						</Route>
+
+						<Route exact path="/contacto">
+							<Contact />
+						</Route>
+
+						<Route exact path="/finalizar-compra">
+							<Checkout />
 						</Route>
 					</Switch>
 				</BrowserRouter>

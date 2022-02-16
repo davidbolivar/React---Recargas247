@@ -1,24 +1,22 @@
 import React, { useContext } from "react";
 import { cartContext } from "./CartContex";
-import { Button } from "react-bootstrap";
-// import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
-export function CartItem({ props, item_number }) {
+export function CartItem({ props }) {
 	const { deleteItem } = useContext(cartContext);
 	return (
-		<tr>
-			<td>{item_number + 1}</td>
-			<td>{props.display_name}</td>
-			<td>{props.category.es}</td>
-			<td>{props.contract.es}</td>
-			<td>{props.price} Bs</td>
-			<td>{props.qty}</td>
-			<td>{props.total} Bs</td>
-			<td>
-				<Button variant="outline-danger" size="sm" className="w-100" onClick={() => deleteItem(props.service_id)}>
-					<i class="bi bi-x-circle"></i> Eliminar
-				</Button>
-			</td>
-		</tr>
+		<div className="d-flex justify-content-between align-items-end mb-1 p-2 border-bottom border-end bg-light">
+			<div className="d-flex flex-row">
+				<span className="font-weight-bold d-block">
+					<strong>{props.qty}x </strong>
+					<span class="">
+						{props.display_name.primary} - {props.category.es}
+					</span>
+				</span>
+			</div>
+			<div className="d-flex flex-row align-items-end">
+				<span className="d-block ms-5">Bs {props.total} </span>
+				<i class="bi bi-x-circle-fill text-danger ms-2" style={{ cursor: "pointer" }} onClick={() => deleteItem(props.service_id)}></i>
+			</div>
+		</div>
 	);
 }

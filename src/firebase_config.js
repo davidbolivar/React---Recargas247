@@ -18,3 +18,5 @@ export function getFirebase() {
 export function getFirestore() {
 	return firebase.firestore(app);
 }
+
+export const getFirebaseTimeStamp = firebase.firestore.Timestamp.now();

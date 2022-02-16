@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { cartContext } from "./CartContex";
 import { CartItem } from "./CartItem";
-import { Container, Table, Button, Row, Col, Alert } from "react-bootstrap";
+import { Container, Button, Row, Col, Alert } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 const Cart = () => {
@@ -11,25 +11,24 @@ const Cart = () => {
 		<>
 			{cart.length ? (
 				<Container fluid="sm" className="pt-5">
-					<Table striped bordered hover size="sm">
-						<thead>
-							<tr>
-								<th className="col-1">#</th>
-								<th className="col-2">SERVICIO</th>
-								<th className="col-2">CATEGORIA</th>
-								<th className="col-2">CONTRATO</th>
-								<th className="col-1">PRECIO</th>
-								<th className="col-1">CANTIDAD</th>
-								<th className="col-1">TOTAL</th>
-								<th className="col-2"></th>
-							</tr>
-						</thead>
-						<tbody>
-							{cart.map((item, i) => (
-								<CartItem props={item} item_number={i} />
-							))}
-						</tbody>
-					</Table>
+					<main name="cart" className="container my-4">
+						<section>
+							<div className="col-12">
+								<div className="me-2">
+									<div className="">
+										<i className="fa fa-long-arrow-left"></i>
+										<h4 className="mb-3 text-primary border-bottom">Carrito de compras</h4>
+
+										{/* <h2 className="lead"> 47 productos en el carrito</h2> */}
+									</div>
+
+									{cart.map((item, i) => (
+										<CartItem props={item} />
+									))}
+								</div>
+							</div>
+						</section>
+					</main>
 
 					<Alert variant="light" className="d-flex justify-content-end border-bottom">
 						<span className="me-1">
@@ -53,7 +52,7 @@ const Cart = () => {
 								</NavLink>
 							</Col>
 							<Col xs="12" md="3" lg="2">
-								<NavLink activeClassName="link-activo" to="/checkout">
+								<NavLink activeClassName="link-activo" to="/finalizar-compra">
 									<Button variant="success" size="sm" className="w-100 my-1">
 										<i class="bi bi-check-circle"></i> Finalizar compra
 									</Button>

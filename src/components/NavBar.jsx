@@ -36,25 +36,25 @@ const NavBar = () => {
 						<NavDropdown title="Servicios" id="collasible-nav-dropdown">
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/servicios/movistar">
-									Movistar
+									<div>Movistar</div>
 								</NavLink>
 							</NavDropdown.Item>
 
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/servicios/movistar-tv">
-									Movistar TV
+									<div>Movistar TV</div>
 								</NavLink>
 							</NavDropdown.Item>
 
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/servicios/movistar-fijo">
-									Movistar Fijo
+									<div>Movistar Fijo</div>
 								</NavLink>
 							</NavDropdown.Item>
 
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/servicios/movistar-internet">
-									Movistar Internet
+									<div>Movistar Internet</div>
 								</NavLink>
 							</NavDropdown.Item>
 
@@ -62,7 +62,7 @@ const NavBar = () => {
 
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/servicios/movilnet">
-									Movilnet
+									<div>Movilnet</div>
 								</NavLink>
 							</NavDropdown.Item>
 
@@ -70,19 +70,19 @@ const NavBar = () => {
 
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/servicios/digitel">
-									Digitel
+									<div>Digitel</div>
 								</NavLink>
 							</NavDropdown.Item>
 
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/servicios/digitel-fijo">
-									Digitel Fijo
+									<div>Digitel Fijo</div>
 								</NavLink>
 							</NavDropdown.Item>
 
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/servicios/digitel-internet">
-									Digitel Internet
+									<div>Digitel Internet</div>
 								</NavLink>
 							</NavDropdown.Item>
 
@@ -90,7 +90,7 @@ const NavBar = () => {
 
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/servicios/global-link">
-									GlobalLink
+									<div>GlobalLink</div>
 								</NavLink>
 							</NavDropdown.Item>
 
@@ -98,7 +98,7 @@ const NavBar = () => {
 
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/servicios/simple-tv">
-									Simple TV
+									<div>Simple TV</div>
 								</NavLink>
 							</NavDropdown.Item>
 
@@ -106,12 +106,12 @@ const NavBar = () => {
 
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/servicios/inter-prepago">
-									Inter Prepago
+									<div>Inter Prepago</div>
 								</NavLink>
 							</NavDropdown.Item>
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/servicios/inter-postpago">
-									Inter Postpago
+									<div>Inter Postpago</div>
 								</NavLink>
 							</NavDropdown.Item>
 
@@ -119,17 +119,17 @@ const NavBar = () => {
 
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/servicios/cantv-residencial">
-									Cantv Residencial
+									<div>Cantv Residencial</div>
 								</NavLink>
 							</NavDropdown.Item>
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/servicios/cantv-empresarial">
-									Cantv Empresarial
+									<div>Cantv Empresarial</div>
 								</NavLink>
 							</NavDropdown.Item>
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/servicios/cantv-satelital">
-									Cantv Satelital
+									<div>Cantv Satelital</div>
 								</NavLink>
 							</NavDropdown.Item>
 
@@ -137,7 +137,7 @@ const NavBar = () => {
 
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" exact to="/">
-									Todas las operadoras
+									<div>Todas las operadoras</div>
 								</NavLink>
 							</NavDropdown.Item>
 						</NavDropdown>
@@ -147,31 +147,31 @@ const NavBar = () => {
 						<NavDropdown title="Categorias" id="collasible-nav-dropdown2">
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/categoria/telefonia-movil">
-									Telefonía móvil
+									<div>Telefonía móvil</div>
 								</NavLink>
 							</NavDropdown.Item>
 
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/categoria/telefonia-fija">
-									Telefonía fija
+									<div>Telefonía fija</div>
 								</NavLink>
 							</NavDropdown.Item>
 
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/categoria/television">
-									Television
+									<div>Television</div>
 								</NavLink>
 							</NavDropdown.Item>
 
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/categoria/internet">
-									Internet
+									<div>Internet</div>
 								</NavLink>
 							</NavDropdown.Item>
 
 							<NavDropdown.Item>
 								<NavLink activeClassName="link-activo" className="react-link" to="/categoria/llamadas-internacionales">
-									Llamadas internacionales
+									<div>Llamadas internacionales</div>
 								</NavLink>
 							</NavDropdown.Item>
 
@@ -187,6 +187,18 @@ const NavBar = () => {
 								Preguntas frecuentes
 							</NavLink>
 						</Nav.Link>
+
+						<Nav.Link>
+							<NavLink activeClassName="link-activo" to="/contacto" className="react-link">
+								Contacto
+							</NavLink>
+						</Nav.Link>
+
+						{/* <Nav.Link>
+							<NavLink activeClassName="link-activo" to="/finalizar-compra" className="react-link">
+								Checkout
+							</NavLink>
+						</Nav.Link> */}
 					</Nav>
 
 					<Nav>
