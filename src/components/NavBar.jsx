@@ -9,10 +9,10 @@ const NavBar = () => {
 	const { cart } = useContext(cartContext);
 
 	return (
-		<Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+		<Navbar id="navbar" collapseOnSelect expand="lg" bg="light" variant="light">
 			<Container fluid style={{ padding: "0px 50px" }}>
 				<Navbar.Brand>
-					<NavLink activeClassName="link-activo" className="react-link" to="/">
+					<NavLink className="react-link" exact to="/">
 						<img src={logo_r247} height="30px" alt="Logo Recargas 24/7" />
 					</NavLink>
 				</Navbar.Brand>
@@ -20,7 +20,7 @@ const NavBar = () => {
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
 				<Navbar.Collapse id="responsive-navbar-nav">
-					<Nav className="me-auto">
+					<Nav className="ms-auto">
 						<Nav.Link href="#how">
 							<NavLink activeClassName="link-activo" className="react-link" exact to="/">
 								Inicio
@@ -136,8 +136,8 @@ const NavBar = () => {
 							<NavDropdown.Divider />
 
 							<NavDropdown.Item>
-								<NavLink activeClassName="link-activo" className="react-link" exact to="/">
-									<div>Todas las operadoras</div>
+								<NavLink activeClassName="link-activo" className="react-link" exact to="/servicios">
+									<div>Todos los servicios</div>
 								</NavLink>
 							</NavDropdown.Item>
 						</NavDropdown>

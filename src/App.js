@@ -1,18 +1,18 @@
 import React from "react";
-import "./App.css";
-import NavBar from "./components/NavBar";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import ItemListContainer from "./components/ItemListContainer";
-import ItemDetailContainer from "./components/ItemDetailContainer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { CartProvider } from "./components/CartContex";
-import Cart from "./components/Cart";
-import Contact from "./components/Contact";
-import Checkout from "./components/Checkout";
+import "./App.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+import NavBar from "./components/NavBar";
+import ItemListContainer from "./components/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer";
+import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
+import Contact from "./components/Contact";
+import Header from "./components/Header";
 
 function App() {
-	// const { totalCart } = useContext(cartContext);
 	return (
 		<>
 			<CartProvider>
@@ -20,6 +20,11 @@ function App() {
 					<NavBar />
 					<Switch>
 						<Route exact path="/">
+							<Header section="home" />
+							<ItemListContainer />
+						</Route>
+
+						<Route exact path="/servicios">
 							<ItemListContainer />
 						</Route>
 
@@ -44,6 +49,7 @@ function App() {
 						</Route>
 
 						<Route exact path="/contacto">
+							<Header section="contacto" />
 							<Contact />
 						</Route>
 

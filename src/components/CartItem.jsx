@@ -13,6 +13,7 @@ export function CartItem({ props }) {
 					</span>
 				</span>
 			</div>
+
 			<div className="d-flex flex-row align-items-end">
 				<span className="d-block ms-5">Bs {props.total} </span>
 				<i class="bi bi-x-circle-fill text-danger ms-2" style={{ cursor: "pointer" }} onClick={() => deleteItem(props.service_id)}></i>

@@ -33,7 +33,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 			</Col>
 			<Col xs="5">
 				<Button className={`w-100 border-secondary ${desactivado}`} onClick={() => onAdd(contador)} variant={clase_boton || "light"}>
-					<i class="bi bi-plus-circle"></i> {texto_boton_agregar}
+					<i className="bi bi-plus-circle"></i> {texto_boton_agregar}
 				</Button>
 			</Col>
 		</Row>

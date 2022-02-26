@@ -23,7 +23,7 @@ const Cart = () => {
 									</div>
 
 									{cart.map((item, i) => (
-										<CartItem props={item} />
+										<CartItem key={item.service_id} props={item} />
 									))}
 								</div>
 							</div>
@@ -41,20 +41,20 @@ const Cart = () => {
 						<Row className="justify-content-md-end justify-content-xs-center">
 							<Col xs="6" md="3" lg="2">
 								<Button variant="outline-secondary" size="sm" className="w-100 my-1" onClick={() => clearCart()}>
-									<i class="bi bi-trash"></i> Vaciar Carrito
+									<i className="bi bi-trash"></i> Vaciar Carrito
 								</Button>
 							</Col>
 							<Col xs="6" md="3" lg="2">
 								<NavLink activeClassName="link-activo" to="/">
 									<Button variant="alert alert-success" size="sm" className="w-100 my-1">
-										<i class="bi bi-arrow-up-right-circle"></i> Seguir comprando
+										<i className="bi bi-arrow-up-right-circle"></i> Seguir comprando
 									</Button>
 								</NavLink>
 							</Col>
 							<Col xs="12" md="3" lg="2">
 								<NavLink activeClassName="link-activo" to="/finalizar-compra">
 									<Button variant="success" size="sm" className="w-100 my-1">
-										<i class="bi bi-check-circle"></i> Finalizar compra
+										<i className="bi bi-check-circle"></i> Finalizar compra
 									</Button>
 								</NavLink>
 							</Col>
@@ -65,9 +65,9 @@ const Cart = () => {
 				<Row className="justify-content-center mt-5">
 					<Col xs="10" md="4" lg="3">
 						<p className="text-center"> No hay productos en el carrito</p>
-						<NavLink activeClassName="link-activo" className="react-link" to="/">
+						<NavLink to="/">
 							<Button variant="outline-danger" size="sm" className="w-100">
-								<i class="bi bi-house-door"></i> Volver al inicio
+								<i className="bi bi-house-door"></i> Volver al inicio
 							</Button>
 						</NavLink>
 					</Col>

@@ -16,7 +16,6 @@ const ItemDetailContainer = () => {
 
 	useEffect(() => {
 		setLoading(true);
-		console.log(service_id);
 		const db = getFirestore();
 		let serviceRef = db.collection("services").doc(service_id);
 

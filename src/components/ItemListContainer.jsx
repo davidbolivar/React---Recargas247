@@ -6,13 +6,12 @@ import Loader from "./Loader";
 import { getFirestore } from "../firebase_config";
 
 function ItemListContainer() {
-	const [producto, setProducto] = useState({});
+	const [product, setProduct] = useState({});
 	const { category } = useParams();
 
 	useEffect(() => {
 		const db = getFirestore();
 
-		// var query = db.collection('chatDocs').where("chatMembers", "array-contains", { userId: "xyz", userName: "abc" });
 		let servicesCollection;
 		if (!category) servicesCollection = db.collection("services").orderBy("id", "asc");
 		else servicesCollection = db.collection("services").where("category.id", "==", category);
@@ -20,8 +19,8 @@ function ItemListContainer() {
 		servicesCollection
 			.get()
 			.then((querySnapshot) => {
-				querySnapshot.size === 0 && console.log("No hay servicios");
-				setProducto(
+				querySnapshot.size === 0 && console.error("No hay servicios");
+				setProduct(
 					querySnapshot.docs.map((doc) => {
 						return { doc_id: doc.id, ...doc.data() };
 					})
@@ -35,9 +34,9 @@ function ItemListContainer() {
 
 	return (
 		<>
-			{producto.length ? (
+			{product.length ? (
 				<Container fluid="sm" className="my-4">
-					<ItemList items={producto} />
+					<ItemList items={product} />
 				</Container>
 			) : (
 				<Loader />

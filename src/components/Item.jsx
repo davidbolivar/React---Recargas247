@@ -7,7 +7,7 @@ const Item = ({ props }) => {
 		<>
 			<Col>
 				<Card className="shadow-sm rounded-0">
-					<Card.Img variant="top" src={props.image} style={{ height: "50px", maxWidth: "200px" }} className="my-2 mx-auto" />
+					<Card.Img variant="top" src={props.image} style={{ height: "50px", maxWidth: "200px" }} className="my-2 mx-auto" alt={`Imagen ${props.display_name.primary}`} />
 					<Card.Body className="text-light bg-secondary px-0 py-0">
 						<Card.Title className="my-0 py-1 px-2 text-center lead h2">{props.category.es}</Card.Title>
 					</Card.Body>

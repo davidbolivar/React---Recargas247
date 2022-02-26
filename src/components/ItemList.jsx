@@ -7,7 +7,7 @@ const ItemList = ({ items }) => {
 		<>
 			<Row xs="1" md="2" lg="4" className="g-4">
 				{items.map((item) => (
-					<Item props={item} />
+					<Item key={item.service_id} props={item} />
 				))}
 			</Row>
 		</>
