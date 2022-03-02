@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { CartProvider } from "./components/CartContex";
 import "./App.css";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "./custom_bootstrap.min.css";
 import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
@@ -11,12 +11,15 @@ import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import Contact from "./components/Contact";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
 	return (
 		<>
 			<CartProvider>
 				<BrowserRouter>
+					<ScrollToTop />
 					<NavBar />
 					<Switch>
 						<Route exact path="/">
@@ -36,14 +39,6 @@ function App() {
 							<ItemListContainer />
 						</Route>
 
-						<Route exact path="/como-funciona">
-							¿Cómo funciona?
-						</Route>
-
-						<Route exact path="/preguntas-frecuentes">
-							Preguntas
-						</Route>
-
 						<Route exact path="/carrito-de-compras">
 							<Cart />
 						</Route>
@@ -58,6 +53,7 @@ function App() {
 						</Route>
 					</Switch>
 				</BrowserRouter>
+				<Footer />
 			</CartProvider>
 		</>
 	);

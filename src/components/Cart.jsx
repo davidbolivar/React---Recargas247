@@ -2,33 +2,32 @@ import React, { useContext } from "react";
 import { cartContext } from "./CartContex";
 import { CartItem } from "./CartItem";
 import { Container, Button, Row, Col, Alert } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
 	const { cart, clearCart, totalCart } = useContext(cartContext);
+	const pathname = window.location.pathname;
 
 	return (
 		<>
 			{cart.length ? (
-				<Container fluid="sm" className="pt-5">
-					<main name="cart" className="container my-4">
+				<Container fluid="sm" className="pt-5" style={{ minHeight: pathname === "/carrito-de-compras" ? "78vh" : "" }}>
+					<div name="cart" className="container my-4">
 						<section>
 							<div className="col-12">
 								<div className="me-2">
 									<div className="">
 										<i className="fa fa-long-arrow-left"></i>
 										<h4 className="mb-3 text-primary border-bottom">Carrito de compras</h4>
-
-										{/* <h2 className="lead"> 47 productos en el carrito</h2> */}
 									</div>
 
 									{cart.map((item, i) => (
-										<CartItem key={item.service_id} props={item} />
+										<CartItem key={i} props={item} />
 									))}
 								</div>
 							</div>
 						</section>
-					</main>
+					</div>
 
 					<Alert variant="light" className="d-flex justify-content-end border-bottom">
 						<span className="me-1">
@@ -45,33 +44,34 @@ const Cart = () => {
 								</Button>
 							</Col>
 							<Col xs="6" md="3" lg="2">
-								<NavLink activeClassName="link-activo" to="/">
+								<Link to="/">
 									<Button variant="alert alert-success" size="sm" className="w-100 my-1">
 										<i className="bi bi-arrow-up-right-circle"></i> Seguir comprando
 									</Button>
-								</NavLink>
+								</Link>
 							</Col>
 							<Col xs="12" md="3" lg="2">
-								<NavLink activeClassName="link-activo" to="/finalizar-compra">
+								<Link to="/finalizar-compra">
 									<Button variant="success" size="sm" className="w-100 my-1">
 										<i className="bi bi-check-circle"></i> Finalizar compra
 									</Button>
-								</NavLink>
+								</Link>
 							</Col>
 						</Row>
 					)}
 				</Container>
 			) : (
-				<Row className="justify-content-center mt-5">
-					<Col xs="10" md="4" lg="3">
-						<p className="text-center"> No hay productos en el carrito</p>
-						<NavLink to="/">
-							<Button variant="outline-danger" size="sm" className="w-100">
-								<i className="bi bi-house-door"></i> Volver al inicio
-							</Button>
-						</NavLink>
-					</Col>
-				</Row>
+				<main className="container">
+					<div className="px-4 py-5 my-5 text-center">
+						<i className="bi bi-cart-x-fill text-secondary display-1"></i>
+						<h2 className="mt-4 text-secondary">No hay productos en el carrito</h2>
+						<Link to="/">
+							<button type="button" className="btn btn-primary mt-4">
+								VOLVER AL INCIO
+							</button>
+						</Link>
+					</div>
+				</main>
 			)}
 		</>
 	);

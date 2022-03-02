@@ -1,11 +1,15 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Header = ({ section }) => {
+	const scrollTo = (id) => {
+		let main = document.getElementById("main");
+		main && main.scrollIntoView({ behavior: "smooth", block: "start" });
+	};
+
 	return (
 		<>
 			{section === "home" ? (
 				<header id="header" className="header">
-					{/* <!-- HEADER BANNER --> */}
 					<div className="header__banner header__banner--index">
 						<div>
 							<p className="header__tittle">
@@ -14,12 +18,9 @@ const Header = ({ section }) => {
 							</p>
 							<p className="header__text">¡Desde la comodidad de tu casa!</p>
 							<div className="mt-3">
-								<a href="#como-funciona" className="btn btn-lg rounded-0 btn-secondary text-white m-2">
-									¿Cómo funciona?
-								</a>
-								<a href="#recharge_form" className="btn btn-lg rounded-0 btn-primary text-white m-2">
-									PAGAR / RECARGAR
-								</a>
+								<Link to="" className="btn btn-lg rounded-0 btn-primary text-white m-2 border-0" onClick={() => scrollTo("main")}>
+									Pagar / Recargar
+								</Link>
 							</div>
 						</div>
 					</div>

@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 const ContactForm = ({ handleSubmit, contactStatus }) => {
 	return (
@@ -53,10 +55,25 @@ const ContactForm = ({ handleSubmit, contactStatus }) => {
 								</label>
 								<textarea className="form-control" name="comments" rows="4" cols="50"></textarea>
 
-								<div className="mt-2">
-									<input type="reset" className="btn btn-outline-secondary me-2" value="Limpiar formulario" />
-									<input type="submit" className="btn btn-secondary" value="Enviar" />
-								</div>
+								{!contactStatus ? (
+									<div className="mt-2">
+										<button type="reset" className="btn btn-outline-secondary me-2">
+											Limpiar formulario
+										</button>
+										<button type="submit" id="send_contact_button" className="btn btn-primary">
+											Enviar
+										</button>
+									</div>
+								) : (
+									<>
+										<div className="alert alert-success rounded-0 my-2">¡Gracias por contactarnos! Responderemos por correo electrónico.</div>
+										<Link to="/">
+											<Button variant="primary" size="sm" className="col-12">
+												VOLVER AL INICIO
+											</Button>
+										</Link>
+									</>
+								)}
 							</form>
 						</div>
 						<div className="col px-0 my-sm-5 my-lg-0">

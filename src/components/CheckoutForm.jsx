@@ -1,16 +1,15 @@
 import React from "react";
 import Cart from "./Cart";
-import { NavLink } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const CheckoutForm = ({ handleSubmit, cart, orderStatus }) => {
 	return (
 		<>
 			{cart.length > 0 && !orderStatus.completed && (
 				<>
-					<Cart />
-					<main name="checkout" className="container my-4">
-						<section>
+					<main>
+						<Cart />
+						<section className="container my-4">
 							<div className="row mt-3">
 								<div className="col-12 mt-3">
 									<h4 className="mb-3 text-primary border-bottom">Finalizar compra</h4>
@@ -54,7 +53,7 @@ const CheckoutForm = ({ handleSubmit, cart, orderStatus }) => {
 											</div>
 
 											<div className="col-md-6 mt-3">
-												<button className="btn btn-sm btn-primary w-100" type="submit">
+												<button className="btn btn-sm btn-primary w-100" type="submit" id="buy_checkout_btn">
 													COMPRAR
 												</button>
 											</div>
@@ -68,16 +67,25 @@ const CheckoutForm = ({ handleSubmit, cart, orderStatus }) => {
 			)}
 
 			{orderStatus.completed && (
-				<>
-					<div className="alert alert-success text-center h4 rounded-0 border-0">El identíficador de tu orden es {orderStatus.id}</div>
-					<div className="text-center">
-						<NavLink activeClassName="link-activo" to="/">
-							<Button variant="alert alert-secondary" size="sm" className="col-6 my-4">
-								IR AL INICIO
-							</Button>
-						</NavLink>
+				<main className="container">
+					<div className="px-4 py-5 my-5 text-center">
+						<i className="bi bi-bag-check-fill text-info display-1"></i>
+						<h1 className="display-5 fw-bold">¡Gracias por tu compra!</h1>
+						<div className="col-lg-6 mx-auto">
+							<p className="lead mb-4">
+								El código de confirmación de tu orden es <br />
+								<b className="text-info">{orderStatus.id}</b>
+							</p>
+							<div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
+								<Link to="/">
+									<button type="button" className="btn btn-primary btn-lg px-4 gap-3">
+										VOLVER AL INICIO
+									</button>
+								</Link>
+							</div>
+						</div>
 					</div>
-				</>
+				</main>
 			)}
 
 			{orderStatus.error && <div>Ocurrió un error: {orderStatus.error}</div>}

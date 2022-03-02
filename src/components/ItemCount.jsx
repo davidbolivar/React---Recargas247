@@ -3,37 +3,26 @@ import { InputGroup, Form, Button, Col, Row } from "react-bootstrap";
 import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
 const ItemCount = ({ stock, initial, onAdd }) => {
-	let desactivado = "";
-	let texto_boton_agregar = "Agregar al carrito";
-	let clase_boton;
-
-	if (stock < 1) {
-		desactivado = "disabled";
-		initial = 0;
-		texto_boton_agregar = "Sin stock";
-		clase_boton = "outline-danger";
-	}
-
-	const [contador, setContador] = useState(initial);
+	const [counter, setCounter] = useState(initial);
 
 	return (
 		<Row className="justify-content-center">
-			<Col xs="7">
+			<Col xs="12" sm="6">
 				<InputGroup className="mb-3">
-					<InputGroup.Text style={{ cursor: "pointer" }} id="basic-addon1" onClick={() => contador > initial && setContador(contador - 1)}>
+					<InputGroup.Text style={{ cursor: "pointer" }} onClick={() => counter > initial && setCounter(counter - initial)}>
 						-
 					</InputGroup.Text>
 
-					<Form.Control size="sm" value={contador} aria-label={contador} className="bg-white" aria-describedby="basic-addon1" style={{ textAlign: "center", fontWeight: "500" }} disabled />
+					<Form.Control size="sm" value={counter} aria-label={counter} className="bg-white" style={{ textAlign: "center", fontWeight: "500" }} disabled />
 
-					<InputGroup.Text style={{ cursor: "pointer" }} id="basic-addon1" onClick={() => contador < stock && setContador(contador + 1)}>
+					<InputGroup.Text style={{ cursor: "pointer" }} onClick={() => counter < stock && setCounter(counter + initial)}>
 						+
 					</InputGroup.Text>
 				</InputGroup>
 			</Col>
-			<Col xs="5">
-				<Button className={`w-100 border-secondary ${desactivado}`} onClick={() => onAdd(contador)} variant={clase_boton || "light"}>
-					<i className="bi bi-plus-circle"></i> {texto_boton_agregar}
+			<Col xs="12" sm="6">
+				<Button className="w-100 border-secondary" onClick={() => onAdd(counter)} variant="light">
+					<i className="bi bi-plus-circle"></i> Agregar al carrito
 				</Button>
 			</Col>
 		</Row>

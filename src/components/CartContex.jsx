@@ -15,7 +15,7 @@ export function CartProvider({ children }) {
 			cart[index].total = cart[index].qty * cart[index].price;
 			// Setea el carrito con los cambios
 			setCart([...cart]);
-		} else setCart([...cart, { service_id: product.service_id, display_name: product.display_name, qty, contract: product.contract, category: product.category, price: product.price, total: qty * product.price }]);
+		} else setCart([...cart, { service_id: product.service_id, display_name: product.display_name, qty, color: product.colors.primary, contract: product.contract, category: product.category, price: product.price, total: qty * product.price }]);
 	};
 
 	const clearCart = () => setCart([]);

@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { getFirestore, getFirebaseTimeStamp } from "../firebase_config";
 import ContactForm from "./ContactForm";
+import { btnLoading } from "../utilities";
 
 const Contact = () => {
 	const [contactStatus, setContactStatus] = useState(false);
-
-	useEffect(() => contactStatus.completed, [contactStatus]);
 
 	const formDataToJson = (form) => {
 		const data = {};
@@ -17,7 +16,7 @@ const Contact = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-
+		btnLoading("send_contact_button", "Enviando...");
 		const db = getFirestore();
 		const contactRequestsRef = db.collection("contactRequests");
 		const serverTimeStamp = getFirebaseTimeStamp;

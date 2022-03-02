@@ -44,7 +44,17 @@ const ItemDetailContainer = () => {
 		addToCart(itemDetail, qty);
 	};
 
-	return <>{!loading ? <ItemDetail props={itemDetail} onAdd={onAdd} showCount={showCount} /> : <Loader />}</>;
+	return (
+		<>
+			{!loading ? (
+				<main>
+					<ItemDetail props={itemDetail} onAdd={onAdd} showCount={showCount} />
+				</main>
+			) : (
+				<Loader />
+			)}
+		</>
+	);
 };
 
 export default ItemDetailContainer;

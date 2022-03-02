@@ -35,9 +35,11 @@ function ItemListContainer() {
 	return (
 		<>
 			{product.length ? (
-				<Container fluid="sm" className="my-4">
-					<ItemList items={product} />
-				</Container>
+				<main id="main">
+					<Container fluid="sm" className="my-4">
+						<ItemList items={product} />
+					</Container>
+				</main>
 			) : (
 				<Loader />
 			)}

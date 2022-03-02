@@ -3,13 +3,15 @@ import { cartContext } from "./CartContex";
 import { getFirestore, getFirebaseTimeStamp } from "../firebase_config";
 import CheckoutForm from "./CheckoutForm";
 import firebase from "firebase/app";
+import { btnLoading } from "../utilities";
 
 const Checkout = () => {
 	const { cart, totalCart, clearCart } = useContext(cartContext);
-
 	const [orderStatus, setOrderStatus] = useState({ completed: false });
 
-	useEffect(() => orderStatus.completed && clearCart(), [orderStatus]);
+	useEffect(() => {
+		orderStatus.completed && clearCart();
+	}, [orderStatus]);
 
 	const formDataToJson = (form) => {
 		const data = {};
@@ -21,7 +23,7 @@ const Checkout = () => {
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
-
+		btnLoading("buy_checkout_btn", "Procesando...");
 		const db = getFirestore();
 		const ordersRef = db.collection("orders");
 		const serverTimeStamp = getFirebaseTimeStamp;
@@ -31,6 +33,7 @@ const Checkout = () => {
 			"in",
 			cart.map((i) => i.service_id)
 		);
+
 		const batch = db.batch();
 		const outOfStock = [];
 		const itemsToUpdate = await itemsInCart.get();

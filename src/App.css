@@ -1,140 +1,122 @@
+h1,
+h2,
+h3 {
+	color: #293c7d;
+}
+
+.header a {
+	text-shadow: none;
+}
+
+main {
+	min-height: 78vh;
+}
+
+input,
+select,
+textarea,
+button,
+.input-group-text,
+.alert {
+	border-radius: 0px !important;
+}
+
+#navbar {
+	background-color: white !important;
+	border-bottom: 4px solid #4899d2;
+	padding: 25px 3%;
+}
+
+#navbar li {
+	text-align: right;
+}
+
+#navbar .nav-link {
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+#navbar .nav-link:hover {
+	color: #4899d2 !important;
+}
+
+#navbar .navbar-brand img {
+	height: 30px;
+}
+
 .react-link {
-	text-decoration: none;
 	color: #0000008c;
+	text-decoration: none;
 }
 .react-link:hover {
 	color: #4899d2;
 }
 
-.align-v {
-	display: flex;
+.vertical-align {
 	align-items: center;
+	display: flex;
 }
 
-.link-activo {
+.active-link {
+	border-bottom: 2px solid #4899d2;
 	color: #4899d2;
 	font-weight: 500;
-	border-bottom: 2px solid #4899d2;
 }
 
-/* CLASES -------------------------------------------*/
-/* header */
-.header a {
-	text-shadow: none;
+.dropdown-item {
+	padding-bottom: 0px !important;
+	padding-top: 0px !important;
 }
 
 .header__banner {
-	display: flex;
-	width: 100%;
-	background-size: cover;
-	justify-content: center;
 	align-items: center;
-	text-align: center;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
 	padding: 0% 10%;
+	text-align: center;
 	text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.56);
+	width: 100%;
 }
 
 .header .header__banner--index {
-	height: calc(100vh - 92px);
 	background-image: url("https://davidbolivar.github.io/Proyecto-Final-JS---CoderHouse/assets/img/header-bg-sm.jpg");
 	background-position: center;
+	height: calc(100vh - 92px);
 }
+
 .header .header__banner--index .header__tittle {
 	color: white;
-	padding: 0;
-	margin: 0;
-	font-weight: bold;
 	font-size: 3rem;
+	font-weight: bold;
 	line-height: 1.2;
-}
-.header .header__banner--index .header__text {
+	margin: 0;
 	padding: 0;
-	font-weight: 400;
-	font-size: 1.5rem;
+}
+
+.header .header__banner--index .header__text {
 	color: white;
+	font-size: 1.5rem;
+	font-weight: 400;
 	margin-bottom: 0;
-}
-
-.header .header__banner--operadoras {
-	height: 35vh;
-	background-image: url("https://davidbolivar.github.io/Proyecto-Final-JS---CoderHouse/assets/img/operadoras-bg-sm.jpg");
-	background-position: bottom center;
-}
-
-.header .header__banner--nuestros-numeros {
-	height: 35vh;
-	background-image: url("https://davidbolivar.github.io/Proyecto-Final-JS---CoderHouse/assets/img/nuestros-numeros-bg-sm.jpg");
-	background-position: top right;
-}
-
-.header .header__banner--galeria {
-	height: 35vh;
-	background-image: url("https://davidbolivar.github.io/Proyecto-Final-JS---CoderHouse/assets/img/galeria-bg-sm.jpg");
-	background-position: center;
-}
-
-.header .header__banner--preguntas-frecuentes {
-	height: 35vh;
-	background-image: url("https://davidbolivar.github.io/Proyecto-Final-JS---CoderHouse/assets/img/preguntas-frecuentes-bg-sm.jpg");
-	background-position: center right;
+	padding: 0;
 }
 
 .header .header__banner--contacto {
-	height: 35vh;
 	background-image: url("https://davidbolivar.github.io/Proyecto-Final-JS---CoderHouse/assets/img/contacto-bg-sm.jpg");
 	background-position: center;
+	height: 35vh;
 }
-
-/* menu */
-#navbar {
-	background-color: white !important;
-	padding: 25px 3%;
-	border-bottom: 4px solid #4899d2;
-}
-#navbar li {
-	text-align: right;
-}
-#navbar .nav-link {
-	color: #293c7d !important;
-	color: #41538d !important;
-	font-weight: 600;
-	font-size: 1.2rem;
-}
-#navbar .nav-link:hover {
-	color: #4899d2 !important;
-}
-#navbar .navbar-brand img {
-	height: 30px;
-}
-/* #navbar .active {
-	
-} */
 
 @media (min-width: 768px) {
 	html {
 		scroll-behavior: auto !important;
 	}
-	/* main {
-		margin: 0% 8%;
-	} */
-	/* .grid-galeria {
-		grid-template-columns: repeat(2, 1fr) !important;
-	} */
+
 	.header__banner--index {
 		background-image: url("https://davidbolivar.github.io/Proyecto-Final-JS---CoderHouse/assets/img/header-bg.jpg") !important;
 	}
-	.header__banner--operadoras {
-		background-image: url("https://davidbolivar.github.io/Proyecto-Final-JS---CoderHouse/assets/img/operadoras-bg.jpg") !important;
-	}
-	.header__banner--nuestros-numeros {
-		background-image: url("https://davidbolivar.github.io/Proyecto-Final-JS---CoderHouse/assets/img/nuestros-numeros-bg.jpg") !important;
-	}
-	.header__banner--galeria {
-		background-image: url("https://davidbolivar.github.io/Proyecto-Final-JS---CoderHouse/assets/img/galeria-bg.jpg") !important;
-	}
-	.header__banner--preguntas-frecuentes {
-		background-image: url("https://davidbolivar.github.io/Proyecto-Final-JS---CoderHouse/assets/img/preguntas-frecuentes-bg.jpg") !important;
-	}
+
 	.header__banner--contacto {
 		background-image: url("https://davidbolivar.github.io/Proyecto-Final-JS---CoderHouse/assets/img/contacto-bg.jpg") !important;
 	}
