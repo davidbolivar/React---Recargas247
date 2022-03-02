@@ -74,7 +74,9 @@ Se utiliza GIT para el versionado.
 
 ---
 
-### 💥 **VIDEO DEL PROYECTO** 💥
+### 💥 **LINK Y VIDEO DEL PROYECTO** 💥
+
+https://recargas247-reactjs-db.netlify.app
 
 https://www.youtube.com/watch?v=xuYwvqIsXkY
 
