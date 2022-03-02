@@ -15,7 +15,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
 					<Form.Control size="sm" value={counter} aria-label={counter} className="bg-white" style={{ textAlign: "center", fontWeight: "500" }} disabled />
 
-					<InputGroup.Text style={{ cursor: "pointer" }} onClick={() => counter < stock && setCounter(counter + initial)}>
+					<InputGroup.Text style={{ cursor: "pointer" }} onClick={() => counter < stock && counter + initial <= stock && setCounter(counter + initial)}>
 						+
 					</InputGroup.Text>
 				</InputGroup>
