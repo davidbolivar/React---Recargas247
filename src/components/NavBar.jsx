@@ -7,10 +7,8 @@ import { cartContext } from "./CartContex";
 
 const NavBar = () => {
 	const { cart } = useContext(cartContext);
-	const toggleNavBar = () => {
-		let toggleButton = document.getElementById("toggle-button");
-		toggleButton.click();
-	};
+
+	const toggleNavBar = () => document.getElementById("toggle-button").click();
 
 	return (
 		<Navbar id="navbar" expand="lg" bg="light" variant="light">
