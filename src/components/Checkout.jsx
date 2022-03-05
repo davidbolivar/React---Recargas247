@@ -10,7 +10,7 @@ const Checkout = () => {
 	const [orderStatus, setOrderStatus] = useState({ completed: false });
 
 	useEffect(() => {
-		orderStatus.completed && clearCart();
+		(orderStatus.completed || orderStatus.error) && clearCart();
 	}, [orderStatus]);
 
 	const formDataToJson = (form) => {
@@ -65,6 +65,8 @@ const Checkout = () => {
 						console.error(err);
 					});
 			});
+		} else {
+			setOrderStatus({ completed: false, id: null, error: "Hay productos en tu carrito que ya no cuenta con stock suficiente", outOfStock });
 		}
 	};
 

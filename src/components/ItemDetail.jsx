@@ -31,7 +31,7 @@ const ItemDetail = ({ props, onAdd, showCount }) => {
 										<strong className="text-secondary">RECARGA MÁXIMA: </strong> {props.max_amount} Bs
 									</Card.Text>
 
-									{props.stock > props.min_amount ? (
+									{props.stock >= props.min_amount ? (
 										<Card.Text className="m-0 small">
 											<strong className="text-secondary">STOCK: </strong> {props.stock}
 										</Card.Text>
